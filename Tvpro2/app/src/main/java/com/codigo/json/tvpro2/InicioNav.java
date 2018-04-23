@@ -36,8 +36,6 @@ public class InicioNav extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-
-        System.out.println("Hola");
         /*
         //cambiar color de item del navegador
         Menu menu = navigationView.getMenu();
