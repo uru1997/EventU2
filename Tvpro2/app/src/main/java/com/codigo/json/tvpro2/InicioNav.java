@@ -2,9 +2,12 @@ package com.codigo.json.tvpro2;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.SearchView;
 import android.text.SpannableString;
 import android.text.style.TextAppearanceSpan;
@@ -22,10 +25,18 @@ import android.view.MenuItem;
 public class InicioNav extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private ViewPager mViewPager;
+    private SectionPageAdapter mSectionPageAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio_nav);
+
+        mViewPager = (ViewPager)findViewById(R.id.container);
+        setupViewPager(mViewPager);
+
+        TabLayout tabLayout = (TabLayout)findViewById(R.id.tabs);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -45,6 +56,13 @@ public class InicioNav extends AppCompatActivity
         tools.setTitle(s);
         */
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    private void setupViewPager(ViewPager viewPager){
+        SectionPageAdapter adapter = new SectionPageAdapter(getSupportFragmentManager());
+        adapter.addFragment(new Tab1Fragment(), "TAB1");
+        adapter.addFragment(new Tab2Fragment(), "TAB2");
+        viewPager.setAdapter(adapter);
     }
 
     @Override
@@ -98,6 +116,8 @@ public class InicioNav extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_perfil) {
+            Intent perfil = new Intent(this, activity_perfil.class);
+            startActivity(perfil);
 
         } else if (id == R.id.nav_transporte) {
 

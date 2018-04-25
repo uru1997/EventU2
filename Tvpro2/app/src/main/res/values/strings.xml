@@ -1,10 +1,15 @@
 <resources>
-    <string name="app_name">Tvpro2</string>
+    <string name="app_name">EventU</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_splash_screen">SplashScreen</string>
-    <string name="title_activity_inicio_nav">Eventos</string>
-    <string name="search">Eventos</string>
-
+    <string name="title_activity_inicio_nav">EventU</string>
+    <string name="search">EventU</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_perfil">activity_perfil</string>
+    <string name="tab_text_1">Eventos en desarrollo</string>
+    <string name="tab_text_2">Eventos realizados</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="recientes">Recientes</string>
+    <string name="recomendados">Recomendados</string>
 </resources>
