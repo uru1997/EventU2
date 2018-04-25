@@ -30,9 +30,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setSupportActionBar(toolbar);
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("EventU");
-
-
-
         toolbar.setTitleMarginStart(440);
         //toolbar.setTitleTextAppearance();
         //toolbar.setTitleTextColor(getResources().getColor(R.color.white));
