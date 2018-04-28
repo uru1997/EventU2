@@ -12,15 +12,15 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="57dp"
+        android:text="Correo Electronico"
+        android:textSize="18sp"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/user"
-        android:layout_marginTop="54dp"
-        android:text="Usuario"
-        android:textSize="18sp" />
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:id="@+id/user"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
@@ -36,23 +36,23 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/user"
-        android:layout_below="@+id/user"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="16dp"
         android:text="Contraseña"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:layout_below="@+id/user"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:id="@+id/pass"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView2"
-        android:layout_below="@+id/textView2"
         android:ems="10"
         android:inputType="textPassword"
         android:textAlignment="viewStart"
         android:textColor="@android:color/darker_gray"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/button"
@@ -69,7 +69,7 @@
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/olvidarcontra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/button"
@@ -79,15 +79,16 @@
         android:textSize="14sp" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/registrarse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView4"
+        android:layout_below="@+id/olvidarcontra"
         android:layout_marginTop="7dp"
+        android:onClick="registro"
         android:text="Registrate Ahora"
         android:textAlignment="center"
-        android:textSize="14sp"
-        android:layout_below="@+id/textView5"
-        android:layout_alignEnd="@+id/textView4" />
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/textView4"
@@ -118,5 +119,24 @@
         app:srcCompat="@drawable/gmail"
         android:layout_alignTop="@+id/imageButton5"
         android:layout_alignEnd="@+id/textView4" />
+
+    <ProgressBar
+        android:id="@+id/pbProgreso"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/registrarse"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="9dp"
+        android:onClick="cerrar"
+        android:text="Salir" />
 
 </RelativeLayout>
