@@ -36,6 +36,10 @@
         <activity
             android:name=".Registrar"
             android:label="@string/title_activity_registrar"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Perfil"
+            android:label="@string/title_activity_perfil"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

@@ -63,6 +63,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }else{
                     //ESTA LOGEADO
                     Toast.makeText(getApplicationContext(),"Correcto y logeado", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(MainActivity.this, InicioNav.class);
+                    startActivity(intent);
+                    finish();
                 }
             }
         };

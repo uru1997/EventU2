@@ -1,5 +1,6 @@
 package com.codigo.json.tvpro2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -18,8 +19,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthActionCodeException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Registrar extends AppCompatActivity {
 
@@ -69,25 +74,40 @@ public class Registrar extends AppCompatActivity {
     }
 
     private void registro (){
-        String nombre = Nombre.getText().toString().trim();
-        String apellido = Apellido.getText().toString().trim();
-        String genre = (String) Genre.getSelectedItem();
         String correo = Correo.getText().toString().trim();
         String contra = Contra.getText().toString().trim();
-        if(!TextUtils.isEmpty(nombre)&&!TextUtils.isEmpty(apellido)&&!TextUtils.isEmpty(genre)&&!TextUtils.isEmpty(correo)&&
-                !TextUtils.isEmpty(contra)){
 
-            String id = databaseusuarios.push().getKey();
-            Usuarios usuario = new Usuarios(id, nombre,apellido,genre,correo);
-            databaseusuarios.child(id).setValue(usuario);
-
+        if(!TextUtils.isEmpty(correo)&&!TextUtils.isEmpty(contra)){
             mAuth.createUserWithEmailAndPassword(correo,contra).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(!task.isSuccessful()){
-                        Toast.makeText(getApplicationContext(),"Error al registrar", Toast.LENGTH_LONG).show();
+                        //verifica si ya hay un usuario con el correo registrado
+                        if (task.getException() instanceof FirebaseAuthActionCodeException) {
+                            Toast.makeText(getApplicationContext(), "Usuario ya registrado", Toast.LENGTH_LONG).show();
+                        }else {
+                            Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                        }
                     }else {
+
+                        String user_id = mAuth.getCurrentUser().getUid();
+                        DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
+
+                        String nombre = Nombre.getText().toString().trim();
+                        String apellido = Apellido.getText().toString().trim();
+                        String correo = Correo.getText().toString().trim();
+                        String genre = (String) Genre.getSelectedItem();
+
+                        Map newPost = new HashMap();
+                        newPost.put("Nombre", nombre);
+                        newPost.put("Apellido", apellido);
+                        newPost.put("Genero", genre);
+                        newPost.put("Correo", correo);
+                        current_user_db.setValue(newPost);
                         Toast.makeText(getApplicationContext(), "Usuario añadido correctamente", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(Registrar.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
                     }
                 }
             });

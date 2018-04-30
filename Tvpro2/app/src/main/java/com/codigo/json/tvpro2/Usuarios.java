@@ -8,7 +8,6 @@ import android.widget.Spinner;
 
 public class Usuarios {
 
-    String userId;
     String nombre;
     String apellido;
     String genero;
@@ -19,16 +18,12 @@ public class Usuarios {
     }
 
     public Usuarios(String userId, String nombre, String apellido, String genero, String correo) {
-        this.userId = userId;
         this.nombre = nombre;
         this.apellido = apellido;
         this.genero = genero;
         this.correo = correo;
     }
 
-    public String getUserId() {
-        return userId;
-    }
 
     public String getNombre() {
         return nombre;

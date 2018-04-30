@@ -104,6 +104,8 @@ public class InicioNav extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_perfil) {
+            Intent intent = new Intent(InicioNav.this, Perfil.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_transporte) {
 
@@ -123,6 +125,7 @@ public class InicioNav extends AppCompatActivity
             mAuth.signOut();
             Intent intent = new Intent(InicioNav.this, MainActivity.class);
             startActivity(intent);
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
