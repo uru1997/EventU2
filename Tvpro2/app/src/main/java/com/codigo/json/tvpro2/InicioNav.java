@@ -17,12 +17,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class InicioNav extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, SearchView.OnQueryTextListener{
 
     private ViewPager mViewPager;
     private SectionPageAdapter mSectionPageAdapter;
+    private SearchView mSearchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +90,12 @@ public class InicioNav extends AppCompatActivity
         if (searchView != null) {
             searchView.setSearchableInfo(searchManager.getSearchableInfo(InicioNav.this.getComponentName()));
         }
+
+        mSearchView = (SearchView) searchItem.getActionView();
+        mSearchView.setQueryHint("Search...");
+        mSearchView.setOnQueryTextListener(this);
+
+
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -136,5 +144,17 @@ public class InicioNav extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        Toast.makeText(this, "Searching for " + query, Toast.LENGTH_LONG).show();
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        Toast.makeText(this, newText, Toast.LENGTH_SHORT).show();
+        return false;
     }
 }
