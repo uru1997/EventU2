@@ -36,7 +36,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.codigo.json.tvpro2.MainActivity" />
         </activity>
-        
+
+
+
+
+
         <activity
             android:name=".DetallesEvento"
             android:screenOrientation="portrait"></activity>
