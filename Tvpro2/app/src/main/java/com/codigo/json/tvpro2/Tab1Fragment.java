@@ -33,6 +33,11 @@ public class Tab1Fragment extends Fragment {
     String nombre;
     String fecha;
     String hora;
+    String tema;
+    String lugar;
+    String tipo;
+    String duracion;
+    String costo;
     String url;
     RecyclerView mRecyclerView;
     MyAdapter mAdapter;
@@ -86,7 +91,12 @@ public class Tab1Fragment extends Fragment {
                     fecha = dataSnapshot1.child("Fecha").getValue().toString();
                     hora = dataSnapshot1.child("Hora").getValue().toString();
                     url = dataSnapshot1.child("url").getValue().toString();
-                    listaDatos.add(new DatosEventos(nombre,fecha,hora,url));
+                    tema = dataSnapshot1.child("Tema").getValue().toString();
+                    lugar = dataSnapshot1.child("Lugar").getValue().toString();
+                    tipo = dataSnapshot1.child("Tipo_Evento").getValue().toString();
+                    duracion = dataSnapshot1.child("Duracion").getValue().toString();
+                    costo = dataSnapshot1.child("Costo").getValue().toString();
+                    listaDatos.add(new DatosEventos(nombre,fecha,hora,tema,lugar,tipo,duracion,costo, url));
                 }
                 mAdapter.notifyDataSetChanged();
                 //Glide.with(getContext()).load(url).into(imagen);

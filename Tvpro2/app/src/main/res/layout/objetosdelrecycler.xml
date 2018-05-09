@@ -12,18 +12,10 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        app:cardCornerRadius="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/imagen"
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
-            android:scaleType="fitXY"
-            android:src="@color/button_material_light"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="143dp" />
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -69,6 +61,18 @@
                 app:layout_constraintTop_toBottomOf="@+id/fecha" />
 
         </android.support.constraint.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/imagen"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:scaleType="fitXY"
+            android:src="@color/button_material_light"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="143dp" />
 
     </android.support.v7.widget.CardView>
 </android.support.v7.widget.CardView>

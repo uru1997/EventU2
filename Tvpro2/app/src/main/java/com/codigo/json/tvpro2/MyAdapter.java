@@ -81,6 +81,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolderDatos> {
             int position = getAdapterPosition();
             DatosEventos datosEventos = this.datosEventos.get(position);
             Intent intent = new Intent(this.context, DetallesEvento.class);
+            intent.putExtra("nombre", datosEventos.getNombre());
+            intent.putExtra("costo", datosEventos.getCosto());
+            intent.putExtra("lugar", datosEventos.getLugar());
+            intent.putExtra("fecha", datosEventos.getFecha());
+            intent.putExtra("hora", datosEventos.getHora());
+            intent.putExtra("tema", datosEventos.getTema());
+            intent.putExtra("tipo", datosEventos.getTipo());
+            intent.putExtra("duracion", datosEventos.getDuracion());
+            intent.putExtra("url", datosEventos.getUrl());
             this.context.startActivity(intent);
             //intent.putExtra();
 
