@@ -19,6 +19,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class InicioNav extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, SearchView.OnQueryTextListener{
 
@@ -148,13 +151,28 @@ public class InicioNav extends AppCompatActivity
 
     @Override
     public boolean onQueryTextSubmit(String query) {
-        Toast.makeText(this, "Searching for " + query, Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "Searching for " + query, Toast.LENGTH_LONG).show();
+        if (!mSearchView.isIconified()){
+            mSearchView.setIconified(true);
+        }
+
         return false;
     }
 
     @Override
     public boolean onQueryTextChange(String newText) {
-        Toast.makeText(this, newText, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, newText, Toast.LENGTH_SHORT).show();
         return false;
+    }
+    private List<DatosEventos> filter(List<DatosEventos> pl, String texto){
+        texto = texto.toLowerCase();
+        final List<DatosEventos> filtered = new ArrayList<>();
+        for (DatosEventos dato:pl){
+            final String text = dato.getNombre().toLowerCase();
+            if (text.startsWith(texto)){
+                filtered.add(dato);
+            }
+        }
+        return filtered;
     }
 }

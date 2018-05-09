@@ -67,7 +67,7 @@ public class Tab1Fragment extends Fragment {
 
         //dbEventos = FirebaseDatabase.getInstance().getReference().child("Evento");
         dbEventos = FirebaseDatabase.getInstance().getReference().getRoot();
-        mAdapter = new MyAdapter(listaDatos);
+        mAdapter = new MyAdapter(listaDatos, getContext());
         mRecyclerView.setAdapter(mAdapter);
 
         eventListener = new ValueEventListener() {

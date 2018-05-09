@@ -47,7 +47,7 @@ public class Tab2Fragment extends Fragment {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         dbEventos = FirebaseDatabase.getInstance().getReference().getRoot();
-        mAdapter = new MyAdapter(listaDatos);
+        mAdapter = new MyAdapter(listaDatos, getContext());
         mRecyclerView.setAdapter(mAdapter);
 
         eventListener = new ValueEventListener() {

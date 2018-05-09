@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".InicioNav">
 
-    <item
-        android:id="@+id/action_search"
-        android:icon="@drawable/ic_search_black_24dp"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:actionViewClass="android.support.v7.widget.SearchView"
-        app:showAsAction="always" />
+        <item
+            android:id="@+id/action_search"
+            android:icon="@drawable/ic_search_black_24dp"
+            android:orderInCategory="100"
+            android:title="@string/action_settings"
+            app:actionViewClass="android.support.v7.widget.SearchView"
+            app:showAsAction="always" />
+
 </menu>
