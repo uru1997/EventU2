@@ -28,9 +28,9 @@ import java.util.Map;
 
 public class Registrar extends AppCompatActivity {
 
-    private EditText Nombre, Apellido, Correo, Contra;
+    private EditText Nombre, Apellido, Edad, Pais, Ciudad, Documento, Correo, Contra;
     private Button Registro;
-    private Spinner Genre;
+    private Spinner Genre, Tipodoc;
     private DatabaseReference databaseusuarios;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener listener;
@@ -48,6 +48,10 @@ public class Registrar extends AppCompatActivity {
 
         Nombre = (EditText) findViewById(R.id.nombre);
         Apellido = (EditText) findViewById(R.id.apellido);
+        Edad = (EditText) findViewById(R.id.edad);
+        Pais = (EditText) findViewById(R.id.pais);
+        Ciudad = (EditText) findViewById(R.id.ciudad);
+        Documento = (EditText) findViewById(R.id.Doc);
         Correo = (EditText) findViewById(R.id.correo);
         Contra = (EditText) findViewById(R.id.contra);
 
@@ -63,6 +67,11 @@ public class Registrar extends AppCompatActivity {
         String []opciones = {"Masculino", "Femenino"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, opciones);
         Genre.setAdapter(adapter);
+
+        Tipodoc = (Spinner) findViewById(R.id.spinnerDoc);
+        String []opcionesd = {"Tarjeta de Identidad", "Cedula"};
+        ArrayAdapter<String> adapterd = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, opcionesd);
+        Tipodoc.setAdapter(adapterd);
 
         listener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -95,14 +104,25 @@ public class Registrar extends AppCompatActivity {
 
                         String nombre = Nombre.getText().toString().trim();
                         String apellido = Apellido.getText().toString().trim();
+                        String edad = Edad.getText().toString().trim();
+                        String pais = Pais.getText().toString().trim();
+                        String ciudad = Ciudad.getText().toString().trim();
                         String correo = Correo.getText().toString().trim();
+                        String documento = Documento.getText().toString().trim();
+                        String tipodoc = (String) Tipodoc.getSelectedItem();
                         String genre = (String) Genre.getSelectedItem();
 
                         Map newPost = new HashMap();
-                        newPost.put("Nombre", nombre);
-                        newPost.put("Apellido", apellido);
+                        newPost.put("Nombre_Asistente", nombre);
+                        newPost.put("Apellidos_Asistente", apellido);
+                        newPost.put("Edad_Asistente", edad);
+                        newPost.put("Pais_Asistente", pais);
+                        newPost.put("Ciudad_Asistente", ciudad);
+                        newPost.put("TipoDocumento_Asistente", tipodoc);
+                        newPost.put("NroDocumento_Asistente", documento);
                         newPost.put("Genero", genre);
                         newPost.put("Correo", correo);
+                        newPost.put("idAsistente", user_id);
                         current_user_db.setValue(newPost);
                         Toast.makeText(getApplicationContext(), "Usuario añadido correctamente", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(Registrar.this, MainActivity.class);
