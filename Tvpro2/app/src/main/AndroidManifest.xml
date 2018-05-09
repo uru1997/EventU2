@@ -36,14 +36,18 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.codigo.json.tvpro2.MainActivity" />
         </activity>
-        <activity
-            android:name=".activity_perfil"
-            android:label="@string/title_activity_perfil"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
+        
         <activity
             android:name=".DetallesEvento"
             android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".Registrar"
+            android:label="@string/title_activity_registrar"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Perfil"
+            android:label="@string/title_activity_perfil"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

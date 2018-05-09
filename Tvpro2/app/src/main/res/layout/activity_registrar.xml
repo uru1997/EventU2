@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.codigo.json.tvpro2.Perfil">
+    tools:context="com.codigo.json.tvpro2.Registrar">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -20,6 +20,5 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_perfil" />
-
+    <include layout="@layout/content_registrar" />
 </android.support.design.widget.CoordinatorLayout>

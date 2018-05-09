@@ -3,7 +3,6 @@ package com.codigo.json.tvpro2;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -22,12 +21,15 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class InicioNav extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, SearchView.OnQueryTextListener{
 
     private ViewPager mViewPager;
     private SectionPageAdapter mSectionPageAdapter;
     private SearchView mSearchView;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,8 @@ public class InicioNav extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+
+        mAuth = FirebaseAuth.getInstance();
         /*
         //cambiar color de item del navegador
         Menu menu = navigationView.getMenu();
@@ -123,8 +127,8 @@ public class InicioNav extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_perfil) {
-            Intent perfil = new Intent(this, activity_perfil.class);
-            startActivity(perfil);
+            Intent intent = new Intent(InicioNav.this, Perfil.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_transporte) {
 
@@ -141,7 +145,10 @@ public class InicioNav extends AppCompatActivity
         } else if (id == R.id.nav_ayuda) {
 
         } else if (id == R.id.nav_cerrarses) {
-
+            mAuth.signOut();
+            Intent intent = new Intent(InicioNav.this, MainActivity.class);
+            startActivity(intent);
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
