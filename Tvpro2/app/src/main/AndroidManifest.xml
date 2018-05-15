@@ -38,6 +38,7 @@
         </activity>
         <activity
             android:name=".DetallesEvento"
+            android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"></activity>
         <activity
             android:name=".Registrar"

@@ -105,13 +105,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         startActivity(intent);
                         finish();
                     }else {
-                        Toast.makeText(getApplicationContext(), "Credenciales incorrectas", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Credenciales incorrectas", Toast.LENGTH_SHORT).show();
                     }
                     pbProgreso.setVisibility(View.INVISIBLE);
                 }
             });
         }else {
-            Toast.makeText(this,"Faltan campos por rellenar", Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Faltan campos por rellenar", Toast.LENGTH_SHORT).show();
         }
 
     }

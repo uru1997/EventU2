@@ -21,7 +21,7 @@ import java.util.List;
 public class Perfil extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    private TextView nomb, corr;
+    private TextView nomb, corr, Pais, Ciudad, Edad, Genero, Documento;
     private List<Usuarios> infor;
 
     @Override
@@ -36,6 +36,12 @@ public class Perfil extends AppCompatActivity {
 
         nomb = (TextView) findViewById(R.id.nombre);
         corr = (TextView) findViewById(R.id.correo);
+        Pais = (TextView) findViewById(R.id.textViewPais);
+        Ciudad = (TextView) findViewById(R.id.textViewCiudad);
+        Edad = (TextView) findViewById(R.id.textViewEdad);
+        Genero = (TextView) findViewById(R.id.textViewGenero);
+        Documento = (TextView) findViewById(R.id.textViewDoc);
+
 
         //Aregar boton de regreso
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -49,7 +55,7 @@ public class Perfil extends AppCompatActivity {
                 finish();
             }
         });
-        //------------------Boton de regreso--------
+        //------------------Boton de regreso-----------------
 
         //obtener la informacion de solo el usuario registrado
         final String user_id = mAuth.getCurrentUser().getUid();
@@ -58,13 +64,21 @@ public class Perfil extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 //leer la informacion del usuario
-                String nombre = dataSnapshot.child("Nombre").getValue().toString();
-                String apellido = dataSnapshot.child("Apellido").getValue().toString();
+                String nombre = dataSnapshot.child("Nombre_Asistente").getValue().toString();
+                String apellido = dataSnapshot.child("Apellidos_Asistente").getValue().toString();
                 String correo = dataSnapshot.child("Correo").getValue().toString();
+                String pais = dataSnapshot.child("Pais_Asistente").getValue().toString();
+                String ciudad = dataSnapshot.child("Ciudad_Asistente").getValue().toString();
+                String edad = dataSnapshot.child("Edad_Asistente").getValue().toString();
                 String genero = dataSnapshot.child("Genero").getValue().toString();
+                String documento = dataSnapshot.child("NroDocumento_Asistente").getValue().toString();
                 nomb.setText(nombre+" "+apellido);
                 corr.setText(correo);
-
+                Pais.setText(pais);
+                Ciudad.setText(ciudad);
+                Edad.setText(edad);
+                Genero.setText(genero);
+                Documento.setText(documento);
             }
 
             @Override
@@ -72,8 +86,5 @@ public class Perfil extends AppCompatActivity {
 
             }
         });
-
-
     }
-
 }

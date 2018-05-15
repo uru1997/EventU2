@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Datos de la tarjeta"
+        android:textColor="#696969"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/editTextnombre"
+        android:layout_width="257dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Nombre"
+        android:inputType="textPersonName"
+        android:textColor="#9f9f9f"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/editTextapellido"
+        android:layout_width="257dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextnombre"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:hint="Apellido"
+        android:layout_marginTop="10dp"
+        android:inputType="textPersonName"
+        android:textColor="#9f9f9f"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/editTextNroTarjeta"
+        android:layout_width="257dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextapellido"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:layout_marginTop="10dp"
+        android:hint="Número de tarjeta"
+        android:inputType="textPersonName"
+        android:textColor="#9f9f9f"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/editTextCodSeg"
+        android:layout_width="257dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextNroTarjeta"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:layout_marginTop="10dp"
+        android:hint="Codigo de seguridad"
+        android:inputType="textPersonName"
+        android:textColor="#9f9f9f"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/editTextDoctit"
+        android:layout_width="257dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextCodSeg"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:layout_marginTop="10dp"
+        android:hint="Documento del titular"
+        android:inputType="textPersonName"
+        android:textColor="#9f9f9f"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/buttonCont"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center"
+        android:layout_below="@+id/editTextDoctit"
+        android:layout_centerHorizontal="true"
+        android:text="Continuar" />
+
+</LinearLayout>

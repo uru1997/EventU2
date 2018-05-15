@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.util.Log;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,15 +22,8 @@ import java.util.ArrayList;
 
 public class Tab1Fragment extends Fragment {
     public static final String TAG = "Tab1Fragment";
-
-    //private Activity context;
-    //private List<Eventos> eventos;
     DatabaseReference dbEventos;
     ValueEventListener eventListener;
-    /*private TextView nombre;
-    private TextView fecha;
-    private TextView hora;
-    private ImageView imagen;*/
     String nombre;
     String fecha;
     String hora;
@@ -48,10 +42,6 @@ public class Tab1Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view  = inflater.inflate(R.layout.tab1_fragment, container, false);
-        /*nombre = (TextView) view.findViewById(R.id.nombre);
-        fecha = (TextView)view.findViewById(R.id.fecha);
-        hora = (TextView)view.findViewById(R.id.hora);
-        imagen = (ImageView) view.findViewById(R.id.imagen);*/
 
         listaDatos = new ArrayList<>();
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
@@ -59,19 +49,9 @@ public class Tab1Fragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-
-
-
-        //mLayoutManager = new LinearLayoutManager(getContext());
-        
-        //llenarDatos();
-
-
-        //url = "https://firebasestorage.googleapis.com/v0/b/tvpro2-a861f.appspot.com/o/prueba%2Flovable-naruto-wallpaper-for-desktop-2.jpg?alt=media&token=067a34c1-07fe-4c92-abe0-81bd07bf93e5";
-        //Glide.with(this /*context*/).load(url).into(imagen);
-
-        //dbEventos = FirebaseDatabase.getInstance().getReference().child("Evento");
-        dbEventos = FirebaseDatabase.getInstance().getReference().getRoot();
+        //dbEventos = FirebaseDatabase.getInstance().getReference().getRoot();
+        dbEventos = FirebaseDatabase.getInstance().getReference().child("Evento");
+        Log.d(TAG, "onCreateView: " + dbEventos.child("Evento"));
         mAdapter = new MyAdapter(listaDatos, getContext());
         mRecyclerView.setAdapter(mAdapter);
 
@@ -93,7 +73,7 @@ public class Tab1Fragment extends Fragment {
                     url = dataSnapshot1.child("url").getValue().toString();
                     tema = dataSnapshot1.child("Tema").getValue().toString();
                     lugar = dataSnapshot1.child("Lugar").getValue().toString();
-                    tipo = dataSnapshot1.child("Tipo_Evento").getValue().toString();
+                    tipo = dataSnapshot1.child("Tipo_evento").getValue().toString();
                     duracion = dataSnapshot1.child("Duracion").getValue().toString();
                     costo = dataSnapshot1.child("Costo").getValue().toString();
                     listaDatos.add(new DatosEventos(nombre,fecha,hora,tema,lugar,tipo,duracion,costo, url));

@@ -51,7 +51,9 @@ public class Tab2Fragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        dbEventos = FirebaseDatabase.getInstance().getReference().getRoot();
+        //dbEventos = FirebaseDatabase.getInstance().getReference().getRoot();
+        dbEventos = FirebaseDatabase.getInstance().getReference().child("Evento");
+
         mAdapter = new MyAdapter(listaDatos, getContext());
         mRecyclerView.setAdapter(mAdapter);
 
@@ -66,7 +68,7 @@ public class Tab2Fragment extends Fragment {
                     url = dataSnapshot1.child("url").getValue().toString();
                     tema = dataSnapshot1.child("Tema").getValue().toString();
                     lugar = dataSnapshot1.child("Lugar").getValue().toString();
-                    tipo = dataSnapshot1.child("Tipo_Evento").getValue().toString();
+                    tipo = dataSnapshot1.child("Tipo_evento").getValue().toString();
                     duracion = dataSnapshot1.child("Duracion").getValue().toString();
                     costo = dataSnapshot1.child("Costo").getValue().toString();
                     listaDatos.add(new DatosEventos(nombre,fecha,hora,tema,lugar,tipo,duracion,costo, url));
