@@ -14,6 +14,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
@@ -76,8 +77,8 @@ public class Tab1Fragment extends Fragment {
         //dbEventos = FirebaseDatabase.getInstance().getReference().getRoot();
         //String claveEvento = dbEventos.getKey();
         //String id = dbEventos.getKey();
-        dbEventos = FirebaseDatabase.getInstance().getReference().child("Evento");
-        Log.d(TAG, "onCreateView: " + dbEventos.child("Evento"));
+        dbEventos = FirebaseDatabase.getInstance().getReference("Evento");
+        //Log.d(TAG, "onCreateView: " + dbEventos.child("Evento"));
         mAdapter = new MyAdapter(listaDatos, getContext());
         mRecyclerView.setAdapter(mAdapter);
 

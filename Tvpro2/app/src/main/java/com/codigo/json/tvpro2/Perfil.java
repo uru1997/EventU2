@@ -58,8 +58,8 @@ public class Perfil extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 //leer la informacion del usuario
-                String nombre = dataSnapshot.child("Nombre").getValue().toString();
-                String apellido = dataSnapshot.child("Apellido").getValue().toString();
+                String nombre = dataSnapshot.child("Nombre_Asistente").getValue().toString();
+                String apellido = dataSnapshot.child("Apellidos_Asistente").getValue().toString();
                 String correo = dataSnapshot.child("Correo").getValue().toString();
                 String genero = dataSnapshot.child("Genero").getValue().toString();
                 nomb.setText(nombre+" "+apellido);
