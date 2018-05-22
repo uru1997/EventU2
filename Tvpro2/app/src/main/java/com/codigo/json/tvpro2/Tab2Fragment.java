@@ -36,6 +36,7 @@ public class Tab2Fragment extends Fragment {
     String duracion;
     String costo;
     String url;
+    String id_evento;
     RecyclerView mRecyclerView;
     MyAdapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
@@ -71,7 +72,8 @@ public class Tab2Fragment extends Fragment {
                     tipo = dataSnapshot1.child("Tipo_evento").getValue().toString();
                     duracion = dataSnapshot1.child("Duracion").getValue().toString();
                     costo = dataSnapshot1.child("Costo").getValue().toString();
-                    listaDatos.add(new DatosEventos(nombre,fecha,hora,tema,lugar,tipo,duracion,costo, url));
+                    id_evento = dataSnapshot1.child("id").getValue().toString();
+                    listaDatos.add(new DatosEventos(nombre,fecha,hora,tema,lugar,tipo,duracion,costo, url, id_evento));
                 }
                 mAdapter.notifyDataSetChanged();
             }

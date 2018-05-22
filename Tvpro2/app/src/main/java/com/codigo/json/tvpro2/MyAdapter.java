@@ -90,6 +90,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolderDatos> {
             intent.putExtra("tipo", datosEventos.getTipo());
             intent.putExtra("duracion", datosEventos.getDuracion());
             intent.putExtra("url", datosEventos.getUrl());
+            intent.putExtra("id_evento", datosEventos.getId_evento());
             this.context.startActivity(intent);
             //intent.putExtra();
 

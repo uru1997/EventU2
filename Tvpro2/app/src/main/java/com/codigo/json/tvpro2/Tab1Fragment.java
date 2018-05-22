@@ -32,6 +32,7 @@ public class Tab1Fragment extends Fragment {
     String tipo;
     String duracion;
     String costo;
+    String id_evento;
     String url;
     RecyclerView mRecyclerView;
     MyAdapter mAdapter;
@@ -76,7 +77,9 @@ public class Tab1Fragment extends Fragment {
                     tipo = dataSnapshot1.child("Tipo_evento").getValue().toString();
                     duracion = dataSnapshot1.child("Duracion").getValue().toString();
                     costo = dataSnapshot1.child("Costo").getValue().toString();
-                    listaDatos.add(new DatosEventos(nombre,fecha,hora,tema,lugar,tipo,duracion,costo, url));
+                    id_evento = dataSnapshot1.child("id").getValue().toString();
+                    //Log.d("holiwis","id="+id_evento);
+                    listaDatos.add(new DatosEventos(nombre,fecha,hora,tema,lugar,tipo,duracion,costo,url,id_evento));
                 }
                 mAdapter.notifyDataSetChanged();
                 //Glide.with(getContext()).load(url).into(imagen);

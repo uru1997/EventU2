@@ -16,12 +16,13 @@ public class DatosEventos {
     private String duracion;
     private String costo;
     private String url;
+    private String id_evento;
 
     public DatosEventos() {
 
     }
 
-    public DatosEventos(String nombre, String fecha, String hora, String tema, String lugar, String tipo, String duracion, String costo, String url) {
+    public DatosEventos(String nombre, String fecha, String hora, String tema, String lugar, String tipo, String duracion, String costo, String url, String id_evento) {
         this.nombre = nombre;
         this.fecha = fecha;
         this.hora = hora;
@@ -31,6 +32,7 @@ public class DatosEventos {
         this.duracion = duracion;
         this.costo = costo;
         this.url = url;
+        this.id_evento = id_evento;
     }
 
     public String getNombre() {
@@ -69,6 +71,8 @@ public class DatosEventos {
         return url;
     }
 
+    public String getId_evento() {   return id_evento;    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -104,4 +108,6 @@ public class DatosEventos {
     public void setUrl(String url) {
         this.url = url;
     }
+
+    public void setId_evento(String id_evento) {this.id_evento = id_evento; }
 }
